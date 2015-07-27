@@ -1,0 +1,83 @@
+package seleniumTst;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
+
+public class SeleniumTsst {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		// Opening the Page and capturing the Sign up
+		WebDriver driver = new FirefoxDriver();
+		driver.manage().window().maximize();
+		driver.get("http://www.spicejet.com/");
+		WebElement ele = driver.findElement(By.id("ctl00_HyperLinkLogin"));
+		WebElement ele1 = driver.findElement(By.xpath(".//*[@id='smoothmenu1']/ul/li[9]/ul/li[3]/a"));
+		WebElement ele2 = driver.findElement(By.xpath(".//*[@id='smoothmenu1']/ul/li[9]/ul/li[3]/ul/li[2]/a"));
+		
+		Actions act = new Actions(driver);
+		
+		Action act1 = act.moveToElement(ele).moveToElement(ele1).moveToElement(ele2).click().build();
+		act1.perform();
+		
+		
+		// Login Information
+		WebDriver driver = new FirefoxDriver();
+		driver.manage().window().maximize();
+		driver.get("https://book.spicejet.com/Register.aspx");
+		
+		driver.findElement(By.id("CONTROLGROUPREGISTERVIEW_MemberInputRegisterView_TextBoxAgentUserName")).sendKeys("Dinesh Andrews");
+		driver.findElement(By.id("CONTROLGROUPREGISTERVIEW_MemberInputRegisterView_PasswordFieldAgentPassword")).sendKeys("Test215");
+		driver.findElement(By.id("CONTROLGROUPREGISTERVIEW_MemberInputRegisterView_PasswordFieldPasswordConfirm")).sendKeys("Test215");
+		
+		// Personal Details
+		WebElement ele4 = driver.findElement(By.id("CONTROLGROUPREGISTERVIEW_PersonInputRegisterView_DropDownListTitle"));
+		Select sel = new Select(ele4);
+		sel.selectByValue("MR");
+		
+		driver.findElement(By.id("CONTROLGROUPREGISTERVIEW_PersonInputRegisterView_TextBoxFirstName")).sendKeys("Dinesh Andrews");
+		driver.findElement(By.id("CONTROLGROUPREGISTERVIEW_PersonInputRegisterView_TextBoxLastName")).sendKeys("G");
+		
+		WebElement day = driver.findElement(By.id("CONTROLGROUPREGISTERVIEW_PersonInputRegisterView_DropDownListDOBDay"));
+		Select sel1 = new Select(day);
+		sel1.selectByVisibleText("29");
+		
+		WebElement month = driver.findElement(By.id("CONTROLGROUPREGISTERVIEW_PersonInputRegisterView_DropDownListDOBMonth"));
+		Select sel2 = new Select(month);
+		sel2.selectByIndex(8);
+		
+		WebElement year = driver.findElement(By.id("CONTROLGROUPREGISTERVIEW_PersonInputRegisterView_DropDownListDOBYear"));
+		Select sel3 = new Select(year);
+		sel3.selectByVisibleText("1986");
+		
+		WebElement nationality = driver.findElement(By.id("CONTROLGROUPREGISTERVIEW_PersonInputRegisterView_DropDownListNationality"));
+		Select sel4 = new Select(nationality);
+		sel4.selectByVisibleText("India");
+		
+		// Contact Details
+		driver.findElement(By.id("CONTROLGROUPREGISTERVIEW_PersonInputRegisterView_TextBoxStreetAddress1")).sendKeys("23, 1st cross, T-Nagar");
+		
+		WebElement country = driver.findElement(By.id("CONTROLGROUPREGISTERVIEW_PersonInputRegisterView_DropDownListCountry"));
+		Select sel5 = new Select(country);
+		sel5.selectByVisibleText("India");
+		
+		WebElement state = driver.findElement(By.id("CONTROLGROUPREGISTERVIEW_PersonInputRegisterView_DropDownListState"));
+		Select sel6 = new Select(state);
+		sel6.selectByValue("IN|TN");
+		
+		driver.findElement(By.id("CONTROLGROUPREGISTERVIEW_PersonInputRegisterView_TextBoxTownCity")).sendKeys("Chennai");
+		driver.findElement(By.id("CONTROLGROUPREGISTERVIEW_PersonInputRegisterView_TextBoxPostalCode")).sendKeys("600097");
+		driver.findElement(By.id("CONTROLGROUPREGISTERVIEW_PersonInputRegisterView_TextBoxFirstPhone")).sendKeys("9597789855");
+		driver.findElement(By.id("CONTROLGROUPREGISTERVIEW_PersonInputRegisterView_TextBoxEmail")).sendKeys("dineshandrews.george@gmail.com");
+		driver.findElement(By.id("CONTROLGROUPREGISTERVIEW_ButtonSubmit")).click();
+		
+
+	}
+
+}
