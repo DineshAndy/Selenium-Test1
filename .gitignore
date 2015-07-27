@@ -28,10 +28,6 @@ public class SeleniumTsst {
 		
 		
 		// Login Information
-		WebDriver driver = new FirefoxDriver();
-		driver.manage().window().maximize();
-		driver.get("https://book.spicejet.com/Register.aspx");
-		
 		driver.findElement(By.id("CONTROLGROUPREGISTERVIEW_MemberInputRegisterView_TextBoxAgentUserName")).sendKeys("Dinesh Andrews");
 		driver.findElement(By.id("CONTROLGROUPREGISTERVIEW_MemberInputRegisterView_PasswordFieldAgentPassword")).sendKeys("Test215");
 		driver.findElement(By.id("CONTROLGROUPREGISTERVIEW_MemberInputRegisterView_PasswordFieldPasswordConfirm")).sendKeys("Test215");
